@@ -24,6 +24,24 @@ snippet cl
 			${5:super($1, self).__init__()}
 			self.$4 = $4
 			${6}
+
+# Setter/Getter
+snippet @setget
+	@property
+	def ${1:fname}(${2:self}):
+		"""${3:docstring for getter $1}"""
+		return $2._$1
+	@${4:$1}.setter
+	def ${5:$1}($2, ${6:value}):
+		"""${7:docstring for setter $1}"""
+		$2._${8:$1} = ${9:$6}
+
+# Property
+snippet @prop
+	@property
+	def ${1:fname}(${2:self}):
+		"""${3:docstring for getter $1}"""
+		return self._$1
 # New Function
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
